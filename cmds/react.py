@@ -9,8 +9,8 @@ with open('setting.json', mode='r', encoding='utf-8') as jFile:
 
 class React(Cog_core):
     @commands.command()
-    async def 夜雨落(self,ctx):
-        await ctx.channel.send('上次跟我一起吃毒\n讓我知道他是史上最會開趴之人')
+    async def 夜雨落(self,ctx): # 當輸入 ~夜雨落 會觸發的
+        await ctx.channel.send('上次跟我一起吃毒\n讓我知道他是史上最會開趴之人') 
         pic = discord.File(jdata['Picture']+'1552499367332.jpg')
         await ctx.channel.send(file=pic)
 
@@ -21,10 +21,10 @@ class React(Cog_core):
         else:
             await ctx.send('錯誤指令')
     @commands.command()
-    async def 抽(self,ctx):
+    async def 抽(self,ctx): # ~抽 可以抽 對 就冰淇淋女孩的那個
         rand = random.choice([0,1,2,3,4,5,6,7,8,9])
         pic = discord.File(jdata['Pic2']+str(rand)+').jpg')
         await ctx.channel.send(file=pic)
 
-def setup(bot):
+def setup(bot): # Cog 用的
     bot.add_cog(React(bot))
